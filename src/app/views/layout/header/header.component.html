@@ -1,26 +1,178 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
+<div class="row">
+  <div class="col-12">
+    <!-- start navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="#"><img src="assets/dist/images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Wedding halls</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Photographers</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                More services
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Cars</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"> Travels</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Events organizing</a>
+              </div>
+            </li>
+          </ul>
+          <!-- Language switching -->
+          <ul class="navbar-nav mr-auto language-switcher">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"> <img src="assets/dist/images/eng.png" alt="english language"> English</a>
+            </li>
+            <span class="sed-divider"></span>
+            <li class="nav-item">
+              <a class="nav-link" href="#"> <img src="assets/dist/images/ar.png" alt="arabic language"> عربي</a>
+            </li>
+          </ul>
+          <!-- Notification -->
+          <ul class="navbar-nav mr-auto notifications">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle sed-notification" href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-bell"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Somthing happend at this time</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Somthing happend at this time</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Somthing happend at this time</a>
+              </div>
+            </li>
+          </ul>
+          <!-- account -->
+          <ul class="navbar-nav mr-auto account">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img src="assets/dist/images/pofile.png" class="rounded-circle profile-pic" alt="my-profile"> Mohamed Sed
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#signin">Sign in</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#signup">Sign up</a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
+    <!-- End navbar -->
+  </div>
+</div>
+
+<!-- Start Sign in Modal -->
+<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h5 class="mt-2">SIGN IN</h5>
+        <div class="row mt-4 sign-in-modal">
+          <div class="col-lg-6">
+            <!-- Sign in form -->
+            <form action="#" method="post">
+              <div class="form-group">
+                <i class="fa fa-envelope"></i>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  placeholder="Enter email" autocomplete="false" required="true" autofocus>
+              </div>
+              <div class="form-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                  autocomplete="false" required="true">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-warning btn-block  mt-3">Sign in</button>
+            </form>
+          </div>
+          <div class="col-lg-6">
+            <img src="assets/dist/images/shape.png" alt="shape">
+          </div>
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <p class=" mr-auto">New here? <strong> <a href="#" data-dismiss="modal" data-toggle="modal"
+              data-target="#signup" class="text-warning">Sign up</a></strong> </p>
+      </div>
+
     </div>
-  </nav>
+  </div>
+</div>
+<!-- End Sign in Modal -->
+
+
+
+
+<!-- Start Sign up Modal -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h5 class="mt-2">SIGN UP</h5>
+        <div class="row mt-4 sign-in-modal">
+          <div class="col-lg-6">
+
+            <!-- Sign up form -->
+            <form action="#" method="post">
+              <div class="form-group">
+                <i class="fa fa-user"></i>
+                <input type="text" class="form-control" id="exampleInputText" placeholder="Enter your name"
+                  autocomplete="false" required="true" autofocus="true">
+              </div>
+              <div class="form-group">
+                <i class="fa fa-envelope"></i>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"
+                  autocomplete="false" required="true">
+              </div>
+              <div class="form-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                  autocomplete="false" required="true">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-warning btn-block  mt-3">Sign up</button>
+            </form>
+          </div>
+          <div class="col-lg-6">
+            <img src="assets/dist/images/shape.png" alt="shape">
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <p class=" mr-auto">Already here? <strong> <a href="#" data-dismiss="modal" data-toggle="modal"
+              data-target="#signin" class="text-warning">Sign in</a></strong> </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- End Sign up Modal -->

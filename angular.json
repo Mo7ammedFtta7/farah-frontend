@@ -26,11 +26,20 @@
             "styles": [
               "src/styles.css",
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
-              "src/assets/css/heroic-features.css"
+              "src/assets/dist/css/all.min.css",
+              "src/assets/dist/css/owl.carousel.min.css",
+              "src/assets/dist/css/owl.theme.default.min.css",
+              "src/assets/dist/css/main.css"
             ],
             "scripts": [
               "src/assets/vendor/jquery/jquery.min.js",
-              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
+              "src/assets/dist/js/jquery.js",
+              "src/assets/dist/js/owl.carousel.min.js",
+              "src/assets/dist/js/masonry.pkgd.min.js",
+              "src/assets/dist/js/popper.min.js",
+              "src/assets/dist/js/bootstrap.min.js",
+              "src/assets/dist/js/typed.min.js",
+              "src/assets/dist/js/main.js"
             ]
           },
           "configurations": {
