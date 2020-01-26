@@ -1,13 +1,41 @@
 import { Injectable } from '@angular/core';
+import { EncryptionService } from '../encryption/encryption.service'
+
 import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable()
 export class AuthService {
-  constructor(public jwtHelper: JwtHelperService) {}
+
+  secretKey = 'sfsdfkjblsfgmb@asd^gsaj)s9hfds^f@3s4!';
+
+
+  constructor(private crypt: EncryptionService) {}
   // ...
-  public isAuthenticated(): boolean {
+  public loggedIn(): boolean {
     const token = localStorage.getItem('token');
     // Check whether the token is expired and return
     // true or false
-    return !this.jwtHelper.isTokenExpired(token);
+    return false;
   }
+
+
+
+  logoutUser() {
+    localStorage.removeItem(this.secretKey)
+    localStorage.removeItem('data')
+   // this._router.navigate(['/home'])
+   // window.location.reload()
+  }
+
+  getToken() {
+    return localStorage.getItem(this.secretKey)
+  }
+
+
+
+  user() {
+    return JSON.parse(this.crypt.decrypt(this.secretKey, this.getToken().toString()));
+  }
+
+
+
 }
