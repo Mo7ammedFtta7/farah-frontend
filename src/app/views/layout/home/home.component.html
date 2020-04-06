@@ -1,7 +1,6 @@
 
 
 
-<app-header></app-header>
 
 
     <!-- Start Slider -->
@@ -40,19 +39,18 @@
 
       <div class="row main-search-form">
          <div class="col-12 mb-3">
-              <h4>What you are looking for?</h4>
+              <h4>{{'What you are looking for?' | translate}}</h4>
               </div>
    <form>
 <div class="form-group sed-form-group">
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your key search">
+  <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="searchKey"  [ngModelOptions]="{standalone: true}" placeholder="{{'Enter your key search' | translate}}">
 </div>
-<select class="form-control">
-  <option>Choose service</option>
-  <option>Large select</option>
-  <option>Large select</option>
-  <option>Large select</option>
+<select class="form-control" [(ngModel)]="selectedService"  [ngModelOptions]="{standalone: true}" placeholder="xxxxx" >
+  <option hidden [ngValue]="" selected>{{'Choose service' | translate}}</option>
+  <option *ngFor="let serviceType of serviceTypes" [ngValue]="serviceType.id" >{{serviceType.name | jsontrans}}</option>
+
 </select>
-<button type="button" class="btn btn-warning mt-2"><i class="fa fa-search"></i> Find</button>
+<button type="button" class="btn btn-warning mt-2" (click)="search()"><i class="fa fa-search"></i> {{'Find' |translate}}</button>
 </form>
       </div>
     </div>
@@ -61,7 +59,7 @@
 <!-- Start Hot offer section -->
 <div class="container">
 <div class="row mt-5 hot-offers">
-  <h3>Hot offers</h3>
+  <h3>{{'Hot offers' | translate}}</h3>
 <div class="owl-carousel owl-theme mt-3">
   <div class="item">
     <div class="offer-card">
@@ -95,7 +93,7 @@
     <p>Ratting</p>
     <i class="fa fa-star marked"></i>
     <i class="fa fa-star marked"></i>
-    <i class="fa fa-star marked"></i>
+    <i class="fa fa-star marked"></i>confidance.png
     <i class="fa fa-star marked"></i>
     <i class="fa fa-star"></i>
     <span>4/5</span>
@@ -284,35 +282,3 @@
 <!-- Start Cities section -->
 <!-- End Cities section -->
 
-<!-- Start why choose farah section -->
-<div class="why-us">
-<div class="container text-center">
-  <h3 class="mb-3">Why Choose Farah?</h3>
-<div class="row">
-  <div class="col-lg-4">
-    <img src="assets/dist/images/easy.png" alt="easy">
-    <h5>Easy to use</h5>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus molestias voluptatibus.</p>
-
-  </div>
-
-  <div class="col-lg-4">
-    <img src="assets/dist/images/offers.png" alt="offers">
-    <h5>Hot offers</h5>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus molestias voluptatibus.</p>
-
-  </div>
-
-  <div class="col-lg-4">
-    <img src="assets/dist/images/confidance.png" alt="confidance">
-    <h5>Easy to use</h5>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus molestias voluptatibus.</p>
-  </div>
-</div>
-</div>
-</div>
-<!-- End choose farah section -->
-
-<app-footer>
-    
-</app-footer>

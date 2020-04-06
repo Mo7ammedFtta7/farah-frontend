@@ -1,0 +1,395 @@
+/* Global */ 
+body {
+    background: #F4F7F8;
+    font-size: 14px;
+    overflow-x: hidden;
+}
+.background-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    opacity: 0.5;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+div,
+p,
+span,
+aside {
+    margin: 0;
+    padding: 0;
+    font-family: OpenSans;
+}
+
+a:hover,
+a a:focus,
+a a:active {
+    text-decoration: none;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"] {
+    font-size: 14px;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(89, 81, 102);
+}
+.nav-item.active a {
+    color: #F7C131 !important;
+}
+/* Start navbar style */
+
+.navbar-light {
+    background: #fff;
+}
+.dropdown-item {
+    font-size: 14px;
+}
+.language-switcher {
+    border: 1px solid #dadada;
+}
+.language-switcher .sed-divider {
+        background-color: #dadada;
+        width: 1px;
+}
+.dropdown-toggle.sed-notification::after{
+    display: none;
+}
+.profile-pic {
+width: 38px;
+height: 38px;
+border: 2px solid #fff;
+box-shadow: 0px 3px 6px #ccc;;
+}
+/* End navbar */
+
+/* Start sign in */
+.sign-in-modal img {
+    height: 230px;
+    float: right;
+}
+.sign-in-modal input[type="email"], .sign-in-modal input[type="password"], .sign-in-modal input[type="text"], .sign-in-modal input[type="select"]  ,.sign-in-modal select{
+border-top: 0px;
+border-left: 0px;
+border-right: 0px;
+text-indent: 17px;
+}
+.sign-in-modal .fa {
+    position: relative;
+    top: 27px;
+    left: 5px;
+    color: #afb2be;
+    }
+.sign-in-modal input[type="email"]:focus, .sign-in-modal input[type="password"]:focus , .sign-in-modal input[type="text"]:focus ,.sign-in-modal select:focus{
+outline: none;
+box-shadow: inset 0 -1px 0 #fff;
+}
+
+/* End sign up */
+
+/* Start Silder */
+.carousel-caption {
+    position: absolute;
+    top: 40px;
+    font-size: 35px;;
+    left: -20%;
+}
+.carousel-caption h5 {
+    font-size: 25px;;
+}
+.main-search-form {
+    position: absolute;
+    top: 40px;
+    right: 10%;
+    width: 350px;;
+padding: 15px;
+border-radius: 5px;
+background: linear-gradient(180deg, #252e3aa1, #31364ac7);
+box-shadow: 0px 3px 6px #0b121c30;
+}
+.main-search-form h4{
+    color: #fff;
+}
+.sed-form-group {
+    width: 315px;;
+}
+.main-search-form button {
+    color: #fff;
+    background-color: #F7C131;
+}
+
+.sed-form-group {
+    margin-bottom: 3px;;
+}
+.offer-card {
+    width: 255px;
+    height: 255px;
+    margin-left: 10px;
+    border-radius: 5px;;
+}
+.offer-card .background-overlay {
+   width: 255px;
+   border-radius: 5px;;
+   }
+.offer-card img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.offer-content, .sp-content {
+    position: relative;
+    bottom: 50%;
+    text-align: center;
+    color: #fff;
+}
+.offer-card .marked, .sp-content .marked {
+color: #F7C131;
+}
+.ratting {
+    justify-items: center;
+    align-items: center;
+}
+.ratting p {
+    display: inline;
+    margin-right: 3px;
+}
+.offer-btn {
+    width: 125px;
+    height: 35px;
+    padding: 5px;
+    background-color: #fff;
+    color: #353535;
+    border-radius: 35px;
+    display: block;
+    border: 1px;
+   margin: 5% 25%;
+
+}
+
+
+/* Start Featured Halls styling */
+
+/* End Featured Halls styling */
+
+/* Start cities styling */
+
+/* End cities styling */
+
+/* Start why choose farah styling */
+.why-us {
+    background-color: #fff;
+    margin-top: 30px;
+    padding: 30px 0px 30px 0px;
+}
+.why-us img {
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+/* End why choose farah styling */
+
+/* start footer styling */
+.footer {
+    background-color: #0F3555;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 21px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.footer ul li {
+    list-style: none;
+}
+.footer a {
+    color : #f7f7f7;
+    text-decoration: none;
+    position: relative;
+    left: 5px;
+}
+.footer a:hover {
+    color: #F7C131;
+    
+}
+.footer input[type="email"] {
+    border: 0px;
+    border-radius: 25px;
+    height: 40px;
+    width: 100%;
+    margin-top: 5px;
+}
+/* remember the media query */
+.footer input[type="submit"] {
+height: 35px;
+background-color: #C6A755;
+color: #f7f7f7;
+border: 0px;
+border-radius: 20px;
+width: 110px;
+position: absolute;
+right: 20px;
+top: 81px;
+}
+/* end footer styling */
+
+/* =================================== */
+/* SEARCH AND FILLTER PAGE STYLE */
+/* =================================== */
+
+/* Start header */
+.search-header, .wedding-halls-header {
+    background-image: url('src/assets/dist/images/bg2.png');
+    color: #fff;
+    height: 325px;
+    background-size: cover;
+}
+.wedding-halls-header {
+    background-image: url('src/assets/dist/images/slider3.png');
+    height: 200px;
+}
+.search-header h3 {
+padding-top: 60px;
+}
+.wedding-halls-header h3 {
+    font-size: 45px;
+    font-weight: 700;
+    padding-top: 60px;
+}
+.breadcrumb {
+    background-color: unset;
+}
+
+.basic-fillter-form {
+    background-color: #fff;
+    box-shadow: 0px 8px 23px #0000000f;
+    border-radius: 5px;
+    width: 80%;
+    margin: auto;
+    padding: 20px 15px 20px 15px;
+    position: relative;
+    top: 130px;
+    color: #353535;
+}
+/* End header */
+
+/* start advanced fillter */
+.advanced-fillter {
+    margin-top: 100px;
+}
+
+.fillter {
+    background-color: #fff;
+    border: 1px #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+.fillter form {
+    margin-top: 10px;
+}
+.fillter form .form-control {
+margin-bottom: 5px;
+}
+.fillter h5 , .top-ratted h5 {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.search-results {
+    background-color: #fff;
+    box-shadow: 0px 1px 0px #D6D6D6;
+    padding: 20px 10px;
+    margin-top: 10px;
+}
+.search-results p {
+    margin-top: 5px;
+}
+.ratting .marked {
+    color: #F7C131;
+}
+.fa-star {
+    color: #ccc;
+}
+.search-results .result-btn {
+    color:#fff;
+    background-color: #F7C131;
+    border-radius: 25px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+}
+.search-results .result-btn:hover {
+background-color: #ceab4a;
+box-shadow: 0px 3px 7px #21212163;
+
+}
+/* End advanced fillter */
+
+/* Start Single page - Service */
+.single-page-details .hall-details, .single-page-details .side-bar {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+
+}
+.single-page-details .side-bar {
+    max-width: 25%;
+}
+@media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 812px)
+{ 
+    .single-page-details .side-bar {
+        max-width: 100%;
+    }
+}
+.single-page-details strong {
+    color: #353535;
+}
+.single-page-details table tr td {
+    padding: 3px 15px 2px 0px;
+    color: #909192;
+}
+
+.sp-contact a {
+        margin-top: 10px;
+        border-radius: 25px;
+        width: 150px;
+        background-color: #fff;
+        border: 1px solid #dfe5e6;
+        padding: 10px;
+}
+.sp-contact a:hover {
+    border: 1px solid #dfe5e6;
+    background-color: #fff;
+    box-shadow: 0px 4px 7px #0e0e0e14;
+
+}
+.sp-contact a.call {
+    color: #29d446;
+} 
+.sp-contact a.email {
+    color: #11c8e8;
+} 
+.sp-contact a.booking {
+    color: #eda60e;
+} 
+
+.offer-card.similler-service {
+    margin-left: 0px;
+    margin-top: 10px;
+}
+.offer-card.similler-service img {
+    width: 100%;
+}
+/* End Single page - Service */

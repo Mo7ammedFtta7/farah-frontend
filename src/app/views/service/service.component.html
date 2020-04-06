@@ -1,0 +1,122 @@
+
+<!-- start header section -->
+<div class="wedding-halls-header text-center">
+    <h3>{{service.service_type.name | jsontrans}}</h3>
+  </div>
+  <div class="container">
+  <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Services</a></li>
+          <li class="breadcrumb-item"><a href="#">{{service.service_type.name | jsontrans}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{service.name | jsontrans }}</li>
+      </ol>
+  </nav>
+  <!-- Start hall details -->
+  <div class="row single-page-details"> 
+      <div class="col-lg-8 col-md-6 col-sm-6 hall-details">
+          <h5 class="mb-3">{{service.name | jsontrans }}</h5>
+          <!-- hall images -->
+          <div id="sed-controll" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="assets/dist/images/slider3.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="assets/dist/images/slider3.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="assets/dist/images/slider3.png" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#sed-controll" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#sed-controll" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <!-- end hall images -->
+          <h4 class="mt-3">{{'Details' | translate}}</h4>
+          <table class="mt-2">
+              <!-- <tr>
+                  <td valign="top"><strong>Description</strong></td>
+                  <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard, Lorem Ipsum is simply dummy text.</td>
+              </tr>-->
+              <tr> 
+          <td > <strong>{{'Ratting' | translate}}</strong> </td>
+           <td class="ratting">
+              <i class="fa fa-star marked"></i>
+              <i class="fa fa-star marked"></i>
+              <i class="fa fa-star marked"></i>
+              <i class="fa fa-star marked"></i>
+              <i class="fa fa-star"></i>
+              <span>4/5</span>
+              </td>
+              </tr>
+<!-- 
+              <tr>
+                <td><strong>City</strong></td>
+                <td>Khartoum</td>
+                </tr> -->
+
+              <tr *ngFor="let info of dynamicInfo">
+              <td><strong>{{info.info_type.typeName | jsontrans}}</strong> </td>
+              <td> {{info.info_value | jsontrans}}</td>
+              </tr>   
+           
+              </table>
+               <div class="sp-contact">
+              <a href="#" class="btn btn-primary  call d-sm-none"><i class="fa fa-phone"></i>   Call</a>
+              <a href="#" class="btn btn-primary  email"><i class="fa fa-envelope"></i>   Send e-mail</a>
+              <a href="#" class="btn btn-primary  booking"><i class="fa fa-calendar"></i>   Book now</a>
+              </div>
+              </div>
+              <!-- End the  hall details -->
+              <!-- Start side bar -->
+              <div class="col-lg-4 col-md-6 col-sm-6 side-bar d-none d-lg-block">
+                      <h5>Similar service</h5>
+                      <div class="offer-card similler-service">
+                          <img src="assets/dist/images/s3.png" alt="offer-card">
+                          <div class="offer-content">
+                          <p class="service-provider-name">Golden Hall For Exhibits </p>
+                          <div class="ratting">
+                            <p>{{'Ratting' | translate}}</p>
+                            <i class="fa fa-star marked"></i>
+                            <i class="fa fa-star marked"></i>
+                            <i class="fa fa-star marked"></i>
+                            <i class="fa fa-star marked"></i>
+                            <i class="fa fa-star"></i>
+                            <span>4/5</span>
+                            <a href="#" class="offer-btn">{{'Details' | translate}}</a>
+                        </div>
+                      </div>
+                      </div>
+  
+                      <div class="offer-card similler-service">
+                          <img src="assets/dist/images/s4.png" alt="offer-card">
+                          <div class="offer-content">
+                          <p class="service-provider-name">Golden Hall For Exhibits </p>
+                          <div class="ratting">
+                            <p>{{'Ratting' | translate}}</p>
+                            <i class="fa fa-star marked"></i>
+                            <i class="fa fa-star marked"></i>
+                            <i class="fa fa-star marked"></i>
+                            <i class="fa fa-star marked"></i>
+                            <i class="fa fa-star"></i>
+                            <span>4/5</span>
+                            <a href="#" class="offer-btn">{{'Details' | translate}}</a>
+                        </div>
+                      </div>
+                      </div>
+              </div> <!-- End side bar -->
+              <div class="col-lg-12 hd-comments">
+                <h3>Reviews</h3>
+              </div>
+          </div>
+  
+  </div>
+  
+  
+  

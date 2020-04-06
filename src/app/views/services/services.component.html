@@ -1,0 +1,198 @@
+
+
+<!-- start header section -->
+<div class="search-header text-center">
+        <h3>{{'Life is an event. Make it memorable' | translate }}</h3>
+        <h5>{{'with farah !' | translate }}</h5>
+        <div class="container">
+            <div class="basic-fillter-form">
+              <h5 class="mb-3">{{'What you are looking for?' | translate }}</h5>
+      
+              <form>
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-12">
+                    <input type="text" class="form-control" [(ngModel)]="search" [ngModelOptions]="{standalone: true}" placeholder="{{'Enter you key search..' | translate }}" required="true" autofocus="true">
+                  </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                      <select  class="form-control">
+                        <option>khartoum</option>
+                        <option>Port sudan</option>
+                        <option>Dongola</option>
+                        <option>Kasala</option>
+                        <option>Halfa</option>
+                      </select>
+                  </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                    <input type="date" class="form-control">
+                  </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                    <input type="submit" value="Find" class=" form-control btn btn-warning">
+                  </div>
+                </div>
+              </form>
+            
+            </div>
+          </div>
+      </div>
+      <!-- end header section -->
+    <!-- Start Hot offer section -->
+    <div class="advanced-fillter">
+    
+        <h4 class="text-center"> 
+          <i class="fa fa-spinner text-warning" *ngIf="!services"></i> 
+          <label for="" *ngIf="services"> {{'results found' | translate }}  {{services.length}} </label>
+         
+        </h4>
+      
+      <div class="container">
+      <div class="row mt-5">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+          <div class="fillter">
+            <h5>{{'Advanced fillter' | translate }}</h5>
+            <form>
+              <div class="row">
+                <div class="col-12">
+                  <select  class="form-control" id="services">
+                    <option>{{'Choose service' | translate }}</option>
+                    <option *ngFor="let service of services" >{{service.name}}</option>
+                    
+                  </select>
+              </div>
+              <div class="col-12">
+                <select  class="form-control" id="states">
+                    <option>{{'Choose state' | translate }}</option>
+                    <option *ngFor="let state of states">{{state.name | jsontrans}}</option>
+
+                </select>
+            </div>
+                <div class="col-12">
+                  <select  class="form-control">
+                    <option>{{'Choose city' | translate }}</option>
+                    <option *ngFor="let city of cities">{{city.name  | jsontrans}}</option>
+
+                  </select>
+              </div>
+                  <div class="col-12">
+                    <select  class="form-control">
+                    <option>{{'Choose area' | translate }}</option>
+                    <option *ngFor="let area of areas">{{area.name  | jsontrans}}</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                  <select  class="form-control" id="area">
+                  <option>{{'Choose ratting' | translate }}</option>
+                  <option> +5 </option>
+                    <option> +4 </option>
+                    <option> +3 </option>
+                    <option> +2 </option>
+                    <option> +1 </option>
+                  </select>
+              </div>
+              <div class="col-12">
+              <label for="price">{{'Price range' | translate }}</label>
+              <input type="range" class="custom-range" min="0" max="5" id="priceRange">
+              </div>
+                  <div class="col-12">
+                  <input type="submit" value="Fillter" class=" form-control btn btn-warning">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      
+        <div class="col-lg-9 col-md-9 col-sm-12">
+          <div class="top-ratted">
+            <h5 class="mt-2">{{'Top ratted' | translate }}</h5>
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="offer-card">
+                  <img src="assets/dist/images/s3.png" alt="offer-card">
+                  <div class="background-overlay"></div>
+                  <div class="offer-content">
+                  <p class="service-provider-name">Golden Hall For Exhibits </p>
+                  <div class="ratting">
+                    <p>Ratting</p>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star"></i>
+                    <span>4/5</span>
+                    <a href="#" class="offer-btn">Details</a>
+                </div>
+              </div>
+              </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="offer-card">
+                  <img src="assets/dist/images/s3.png" alt="offer-card">
+                  <div class="background-overlay"></div>
+                  <div class="offer-content">
+                  <p class="service-provider-name">Golden Hall For Exhibits </p>
+                  <div class="ratting">
+                    <p>Ratting</p>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star"></i>
+                    <span>4/5</span>
+                    <a href="#" class="offer-btn">Details</a>
+                </div>
+              </div>
+              </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="offer-card">
+                  <img src="assets/dist/images/s3.png" alt="offer-card">
+                  <div class="background-overlay"></div>
+                  <div class="offer-content">
+                  <p class="service-provider-name">Golden Hall For Exhibits </p>
+                  <div class="ratting">
+                    <p>Ratting</p>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star marked"></i>
+                    <i class="fa fa-star"></i>
+                    <span>4/5</span>
+                    <a href="#" class="offer-btn">{{'Details'|translate}}</a>
+                </div>
+              </div>
+              </div>
+              </div>
+            </div>
+          </div> <!-- end top ratted -->
+      
+          <div *ngFor="let service of services" class="row search-results mt-5"> <!--  start the results -->
+            <div class="col-lg-2 col-md-2 col-sm-12">
+              <img src="assets/dist/images/sp-logo.png" alt="sp logo" class="sp-logo">
+              <p class="price-lable text-center">80,000 SDG</p>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-12">
+              <h5><a href="#">{{service.name | jsontrans}}</a></h5>
+              <p class="ratting"> {{'Ratting' | jsontrans}}
+              <i class="fa fa-star marked"></i>
+              <i class="fa fa-star marked"></i>
+              <i class="fa fa-star marked"></i>
+              <i class="fa fa-star marked"></i>
+              <i class="fa fa-star"></i>
+              <span>4/5</span>
+              </p>
+              <p class="mb-2">{{service.dynamic_infos[0].info_value | jsontrans }} </p>
+              <i class="fa fa-tag"></i> <a href="#">{{service.service_type.name | jsontrans}}</a>
+              <p>
+                <i class="fa fa-map"></i> Khartoum, Bahry, Shambat <span>|</span>
+                <i class="fa fa-phone"></i> +249901726436</p>
+              <a href="javascript:;" [routerLink]="['/service',service.id]"  class="result-btn float-right">{{'Details' | translate }}</a>
+            </div>
+          </div>
+
+      
+        </div>
+      </div>
+      </div>
+      </div>
+      <!-- End Hot offer section -->
+      
+ 

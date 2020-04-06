@@ -12,36 +12,42 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" [routerLink]="[ '/home' ]">{{'Home' | translate}} <span
+                  class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Wedding halls</a>
+              <a class="nav-link" href="#">{{'Wedding halls' | translate }}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Photographers</a>
+              <a class="nav-link" href="#">{{'Photographers' | translate }}</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                More services
+                {{'More services' | translate}}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Cars</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"> Travels</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Events organizing</a>
+
+                <div *ngFor="let serviceType of serviceTypes ">
+                  <a class="dropdown-item"
+                    [routerLink]="[ '/services', serviceType.id ]">{{serviceType.name | jsontrans}}</a>
+                  <div class="dropdown-divider"></div>
+                </div>
+
+
               </div>
             </li>
           </ul>
           <!-- Language switching -->
           <ul class="navbar-nav mr-auto language-switcher">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"> <img src="assets/dist/images/eng.png" alt="english language"> English</a>
+            <li class="nav-item " [ngClass]="{'active':lang=='en'}">
+              <a class="nav-link" href="javascript:;" (click)="setlang('en')"> <img src="assets/dist/images/eng.png"
+                  alt="english language"> English</a>
             </li>
             <span class="sed-divider"></span>
-            <li class="nav-item">
-              <a class="nav-link" href="#"> <img src="assets/dist/images/ar.png" alt="arabic language"> عربي</a>
+            <li class="nav-item" [ngClass]="{'active':lang=='ar'}">
+              <a class="nav-link" href="javascript:;" (click)="setlang('ar')"> <img src="assets/dist/images/ar.png"
+                  alt="arabic language"> عربي</a>
             </li>
           </ul>
           <!-- Notification -->
@@ -62,15 +68,25 @@
           </ul>
           <!-- account -->
           <ul class="navbar-nav mr-auto account">
-            <li class="nav-item dropdown">
+
+              <li *ngIf="!auth.loggedIn()">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#signin">{{'SIGN IN' | translate }}</a>/<a class="dropdown-item" href="#" data-toggle="modal" data-target="#signup">{{'SIGN UP' | translate }}</a>              </li>
+            <li *ngIf="auth.loggedIn()" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img src="assets/dist/images/pofile.png" class="rounded-circle profile-pic" alt="my-profile"> Mohamed Sed
+                <img src="assets/dist/images/pofile.png" class="rounded-circle profile-pic" alt="my-profile"> Mohamed
+                Sed
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#signin">Sign in</a>
+                <a class="dropdown-item" href="#" data-toggle="modal"
+                  data-target="#signin">{{'SIGN IN' | translate }}</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#signup">Sign up</a>
+                <a class="dropdown-item" href="#" data-toggle="modal"
+                  data-target="#signup">{{'Sign up' | translate }}</a>
+                <div class="dropdown-divider"></div>
+
+                <a class="dropdown-item" routerLink="/dashboard">{{'Dashboard' | translate }}</a>
+
               </div>
             </li>
           </ul>
@@ -86,26 +102,29 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <h5 class="mt-2">SIGN IN</h5>
+        <h5 class="mt-2">{{'SIGN IN' | translate}}</h5>
         <div class="row mt-4 sign-in-modal">
           <div class="col-lg-6">
-            <!-- Sign in form -->
-            <form action="#" method="post">
+            <!-- SIGN IN form -->
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
               <div class="form-group">
                 <i class="fa fa-envelope"></i>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                  placeholder="Enter email" autocomplete="false" required="true" autofocus>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" #email="ngModel" ngModel
+                  email aria-describedby="emailHelp" placeholder="{{'Enter email' | translate }}" autocomplete="false"
+                  required="true" autofocus>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                </div>
               </div>
               <div class="form-group">
                 <i class="fa fa-lock"></i>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-                  autocomplete="false" required="true">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel
+                  placeholder="{{'Password' | translate }}" autocomplete="false" required="true">
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <label class="form-check-label" for="exampleCheck1">{{'Check me out' | translate }}</label>
               </div>
-              <button type="submit" class="btn btn-warning btn-block  mt-3">Sign in</button>
+              <button type="submit" class="btn btn-warning btn-block  mt-3">{{'SIGN IN' | translate }}</button>
             </form>
           </div>
           <div class="col-lg-6">
@@ -116,14 +135,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <p class=" mr-auto">New here? <strong> <a href="#" data-dismiss="modal" data-toggle="modal"
-              data-target="#signup" class="text-warning">Sign up</a></strong> </p>
+        <p class=" mr-auto">{{'New here?' | translate }} <strong> <a href="#" data-dismiss="modal" data-toggle="modal"
+              data-target="#signup" class="text-warning">{{'Sign up' | translate }}</a></strong> </p>
       </div>
 
     </div>
   </div>
 </div>
-<!-- End Sign in Modal -->
+<!-- End SIGN IN Modal -->
 
 
 
@@ -133,43 +152,73 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <h5 class="mt-2">SIGN UP</h5>
+        <h5 class="mt-2">{{'SIGN UP' | translate }}</h5>
         <div class="row mt-4 sign-in-modal">
-          <div class="col-lg-6">
+          <div class="col-lg-8">
 
             <!-- Sign up form -->
-            <form action="#" method="post">
-              <div class="form-group">
-                <i class="fa fa-user"></i>
-                <input type="text" class="form-control" id="exampleInputText" placeholder="Enter your name"
-                  autocomplete="false" required="true" autofocus="true">
+          
+            <form [formGroup]="registerForm"  (ngSubmit)="regOnSubmit()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <i class="fa fa-user"></i>
+                    <input type="text" class="form-control" id="exampleInputText" formControlName="name" [ngClass]="{ 'is-invalid': regSubmitted && regf.name.errors }"
+                      placeholder="{{'Enter your name' | translate }}" autocomplete="false" required="true"
+                      autofocus="true">
+                  </div>
+                  <div class="form-group">
+                    <i class="fa fa-envelope"></i>
+                    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"  [ngClass]="{ 'is-invalid': regSubmitted && regf.email.errors }"
+                      placeholder="{{'Enter email' | translate }}" autocomplete="false" required="true">
+                  </div>
+                  <div class="form-group">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"  [ngClass]="{ 'is-invalid': regSubmitted && regf.password.errors }"
+                      placeholder="{{'Password' | translate }}" autocomplete="false" required="true">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  
+                  <div class="form-group">
+                    <i class="fa fa-phone"></i>
+                    <input type="text" class="form-control" id="exampleInputphone" formControlName="phone"  [ngClass]="{ 'is-invalid': regSubmitted && regf.phone.errors }"
+                      placeholder="{{'Enter phone' | translate }}" autocomplete="false" required="true">
+                  </div>
+                  <div class="form-group">
+                    <i class="fa fa-map-marker"></i>
+                    <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{'Password' | translate }}"
+                  autocomplete="false" required="true"> -->
+
+                    <select name="" id="" class="form-control">
+                      <option value="">اختر مدينة</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" class="form-control"  formControlName="confirmPassword"  [ngClass]="{ 'is-invalid': regSubmitted && regf.confirmPassword.errors }"
+                      placeholder="{{'confirme Password' | translate }}" autocomplete="false" required="true" autofocus="true">
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <i class="fa fa-envelope"></i>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"
-                  autocomplete="false" required="true">
-              </div>
-              <div class="form-group">
-                <i class="fa fa-lock"></i>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-                  autocomplete="false" required="true">
-              </div>
+
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="check">  
+                <label class="form-check-label" for="exampleCheck1">{{'Check me out' | translate }}</label>
               </div>
-              <button type="submit" class="btn btn-warning btn-block  mt-3">Sign up</button>
+              <button type="submit" class="btn btn-warning btn-block  mt-3">{{'Sign up' | translate }}</button>
             </form>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <img src="assets/dist/images/shape.png" alt="shape">
           </div>
 
         </div>
       </div>
       <div class="modal-footer">
-        <p class=" mr-auto">Already here? <strong> <a href="#" data-dismiss="modal" data-toggle="modal"
-              data-target="#signin" class="text-warning">Sign in</a></strong> </p>
+        <p class=" mr-auto">{{'Already here?' | translate }} <strong> <a href="#" data-dismiss="modal"
+              data-toggle="modal" data-target="#signin" class="text-warning">{{'SIGN IN' | translate }}</a></strong>
+        </p>
       </div>
 
     </div>

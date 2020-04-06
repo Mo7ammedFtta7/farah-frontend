@@ -1,0 +1,209 @@
+/* Global */ 
+body {
+    background: #F4F7F8;
+    font-size: 14px;
+    overflow-x: hidden;
+}
+.background-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    opacity: 0.5;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+div,
+p,
+span,
+aside {
+    margin: 0;
+    padding: 0;
+    font-family: Lato;
+}
+.topbar {
+    background-color: #fff;
+    padding: 5px;
+}
+.topbar .img-logo {
+    width: 80px;
+}
+.topbar .form-group {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.topbar .language-switcher {
+position: absolute;
+margin-top: 10px;
+}
+.topbar .profile-pic {
+    width: 38px;
+    height: 38px;
+    border: 2px solid #fff;
+    box-shadow: 0px 3px 6px #ccc;;
+    }
+
+    /* navbar */
+.navbar {
+    padding: 0px;
+}
+.navbar a {
+    color: #edf2f4;
+}
+a:hover,
+a a:focus,
+a a:active {
+    text-decoration: none;
+    color:  #F7C131;
+}
+.bg-farah {
+    background-color: #9f790f;
+}
+li.nav-item {
+    padding: 5px;
+}
+
+.nav-item.active {
+    border-bottom: 3px solid #fff;
+}
+.nav-item.active a{
+    color: #F7C131;
+}
+
+.sed-topbar  .nav-link {
+    padding: 0px !important;
+}
+
+/* statistics */
+.the-statistics .col-lg-2.col-md-2.col-sm-12 {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 3px;
+    margin: 10px;
+}
+.the-statistics  .fa {
+font-size: 45px;
+}
+.sed-users {
+    border-left: 3px solid #C4A1E6;
+}
+.sed-users .fa-users {
+    color: #C4A1E6;
+}
+.sed-calendar {
+    border-left: 3px solid #40D9F5;
+}
+.sed-calendar .fa-calendar {
+    color: #40D9F5;
+}
+.sed-comment {
+    border-left: 3px solid #84C2EF;
+}
+.sed-comment .fa-comment {
+    color: #84C2EF;
+}
+.sed-eye {
+    border-left: 3px solid #f8be1b;
+}
+.sed-eye .fa-eye {
+    color: #f8be1b;
+}
+.sed-phone {
+    border-left: 3px solid #6BD680;
+}
+.sed-phone .fa-phone {
+    color: #6BD680;
+}
+span.sed-divider, span.sed-divider2 {
+    width: 1px;
+    background-color: #eaeef0;
+    height: 100%;
+    position: absolute;
+    margin-left: 15px;
+}
+span.sed-divider2 {
+ 
+    margin-left: 0px;
+}
+.topbar a {
+    color: #636468;
+}
+.topbar .btn-website {
+    margin-top: 5px;
+    margin-left: 20px;
+    border: 1px solid #ddd;
+    padding: 6px;
+    border-radius: 5px;
+    width: 129px;
+    text-align: center;
+    background-color: #fff;
+    font-weight: 800;
+}
+.topbar .btn-website .fa {
+    color: #9f790f;
+    margin-left: 3px;
+}
+   .topbar .btn-website:hover  .fa {
+     color: #f9bb13;
+ }
+.topbar .custom-select {
+    background-color: #f4f7f8;
+}
+/* Week reservations */
+.the-calendar {
+    background-color: #ebf0f2;
+    padding: 20px;
+    height: 300px;
+    text-align: center;
+}
+
+/* clients page */
+.clients-page .sidebar {
+    background-color: #F6F9FA;
+}
+.clients-page .sidebar,.clients-page .clients-data {
+     margin: 10px; 
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+ }
+.clients-page .form-group {
+    margin-bottom: 8px;
+}
+.clients-page .btn-info {
+    background-color: #fff;
+    border: 2px solid #9f790f;
+    border-radius: 25px;
+    color: #9f790f;
+}
+.clients-page .btn-info:hover {
+    background-color: #9f790f;
+    border: 2px solid #9f790f;
+    color: #fff
+}
+.clients-page table {
+    background-color: #fff;
+}
+.clients-page .table td, .table th {
+    vertical-align: baseline;
+}
+
+/* client modal */
+.the-client-details-modal .modal-header, .the-client-create-modal .modal-header{
+background-color: #9f790f;
+color: #fff;
+}
+.all-client-details {
+width: 100%;
+}
+.all-client-details tr  td {
+    border: 1px solid #F6F9FA;
+    padding: 10px;;
+}
