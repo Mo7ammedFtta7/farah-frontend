@@ -6,35 +6,36 @@ import { ApiService } from '../api/api.service';
 @Injectable()
 export class AuthService {
 
-  secretKey = 'sfsdfkjblsfgmb@asd^gsaj)s9hfds^f@3s4!';
-
+  secretKey = 'sfsdfkjblsfaxzgmb@aasdsd^gsaj)s9hfds^f@3s4!';
+  token="9hfds^f@3s4!";
 
   constructor(private crypt: EncryptionService) {}
   // ...
   public loggedIn(): boolean {
-    const token = localStorage.getItem('token');
-    // Check whether the token is expired and return
-    // true or false
-    return false;
+    return this.getToken()!==null;
   }
 
 
 
   logoutUser() {
-    localStorage.removeItem(this.secretKey)
-    localStorage.removeItem('data')
+    //localStorage.removeItem(this.secretKey)
+    localStorage.removeItem(this.token)
    // this._router.navigate(['/home'])
    // window.location.reload()
   }
 
   getToken() {
-    return localStorage.getItem(this.secretKey)
+    return localStorage.getItem(this.token)
+  }
+
+  setUser(data) {
+     localStorage.setItem(this.token,this.crypt.encrypt(this.token, JSON.stringify(data)   ));
+     return true;
   }
 
 
-
   user() {
-    return JSON.parse(this.crypt.decrypt(this.secretKey, this.getToken().toString()));
+    return JSON.parse(this.crypt.decrypt(this.token, this.getToken()));
   }
 
 

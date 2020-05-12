@@ -23,6 +23,8 @@ import { DataService } from './services/dataStore/data.service';
 import { JsonttransPipe } from './services/translation/jsonttrans.pipe';
 import { ServiceComponent } from './views/service/service.component';
 import { FaqComponent } from './views/faq/faq.component';
+import { MessageComponent } from './services/message/message.component';
+import { SpinerComponent } from './services/spiner/spiner.component';
 
 export function jokesProviderFactory(provider: DataService) {
   return () => provider.load();
@@ -43,7 +45,9 @@ export function jokesProviderFactory(provider: DataService) {
     TranslatePipe,
     JsonttransPipe,
     ServiceComponent,
-    FaqComponent
+    FaqComponent,
+    MessageComponent,
+    SpinerComponent
   ],
   imports: [
     BrowserModule,

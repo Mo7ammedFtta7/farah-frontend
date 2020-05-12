@@ -30,7 +30,7 @@
 
                 <div *ngFor="let serviceType of serviceTypes ">
                   <a class="dropdown-item"
-                    [routerLink]="[ '/services', serviceType.id ]">{{serviceType.name | jsontrans}}</a>
+                    [routerLink]="[ '/services', serviceType.slug ]">{{serviceType.name | jsontrans}}</a>
                   <div class="dropdown-divider"></div>
                 </div>
 
@@ -39,6 +39,7 @@
             </li>
           </ul>
           <!-- Language switching -->
+
           <ul class="navbar-nav mr-auto language-switcher">
             <li class="nav-item " [ngClass]="{'active':lang=='en'}">
               <a class="nav-link" href="javascript:;" (click)="setlang('en')"> <img src="assets/dist/images/eng.png"
@@ -74,18 +75,18 @@
             <li *ngIf="auth.loggedIn()" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img src="assets/dist/images/pofile.png" class="rounded-circle profile-pic" alt="my-profile"> Mohamed
-                Sed
+                <img src="assets/dist/images/pofile.png" class="rounded-circle profile-pic" alt="my-profile"> {{auth.user().user.first_name}}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" data-toggle="modal"
+                <!-- <a class="dropdown-item" href="javascript:;" data-toggle="modal"
                   data-target="#signin">{{'SIGN IN' | translate }}</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal"
                   data-target="#signup">{{'Sign up' | translate }}</a>
-                <div class="dropdown-divider"></div>
+                <div class="dropdown-divider"></div> -->
 
                 <a class="dropdown-item" routerLink="/dashboard">{{'Dashboard' | translate }}</a>
+                <a class="dropdown-item" (click)="auth.logoutUser()" >{{'Logout' | translate }}</a>
 
               </div>
             </li>
@@ -106,31 +107,46 @@
         <div class="row mt-4 sign-in-modal">
           <div class="col-lg-6">
             <!-- SIGN IN form -->
-            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <form [formGroup]="loginForm"  (ngSubmit)="loginOnSubmit()">
               <div class="form-group">
                 <i class="fa fa-envelope"></i>
-                <input type="email" class="form-control" id="exampleInputEmail1" name="email" #email="ngModel" ngModel
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email"   formControlName="email"
                   email aria-describedby="emailHelp" placeholder="{{'Enter email' | translate }}" autocomplete="false"
-                  required="true" autofocus>
-                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                </div>
+                  required="true" autofocus
+                  [ngClass]="{ 'is-invalid': logSubmitted && logf.email.errors }"
+                  >
+                <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                </div> -->
               </div>
               <div class="form-group">
                 <i class="fa fa-lock"></i>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel
-                  placeholder="{{'Password' | translate }}" autocomplete="false" required="true">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" formControlName="password"
+                  placeholder="{{'Password' | translate }}" autocomplete="false" required="true"
+                  [ngClass]="{ 'is-invalid': logSubmitted && logf.password.errors }">
+
+                  <div *ngIf="logError!=''"  class="alert alert-danger">
+                    {{logError}}
+                  </div>
+
+
+                  <!-- <div  class="alert alert-succes">
+                    sdfsdfsfdf
+                    sdfsdf
+                  </div> -->
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">{{'Check me out' | translate }}</label>
               </div>
-              <button type="submit" class="btn btn-warning btn-block  mt-3">{{'SIGN IN' | translate }}</button>
+              <button type="submit" class="btn btn-warning btn-block  mt-3">{{'SIGN IN' | translate }}
+                <app-spiner name="loginSP" ></app-spiner>
+
+              </button>
             </form>
           </div>
           <div class="col-lg-6">
             <img src="assets/dist/images/shape.png" alt="shape">
           </div>
-
 
         </div>
       </div>
@@ -183,20 +199,20 @@
                   <div class="form-group">
                     <i class="fa fa-phone"></i>
                     <input type="text" class="form-control" id="exampleInputphone" formControlName="phone"  [ngClass]="{ 'is-invalid': regSubmitted && regf.phone.errors }"
-                      placeholder="{{'Enter phone' | translate }}" autocomplete="false" required="true">
+                      placeholder="{{'Enter phone : 249xxxxxxxx' | translate }}" autocomplete="false" required="true">
                   </div>
                   <div class="form-group">
                     <i class="fa fa-map-marker"></i>
                     <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{'Password' | translate }}"
                   autocomplete="false" required="true"> -->
 
-                    <select name="" id="" class="form-control">
-                      <option value="">اختر مدينة</option>
+                    <select class="form-control" formControlName="city">
+                      <option *ngFor="let state of states ; let i = index" [selected]="i == 0 ? true : null" [value]="state.id">{{state.name | jsontrans }}</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <i class="fa fa-lock"></i>
-                    <input type="password" class="form-control"  formControlName="confirmPassword"  [ngClass]="{ 'is-invalid': regSubmitted && regf.confirmPassword.errors }"
+                    <input type="password" class="form-control"  formControlName="password_confirmation"  [ngClass]="{ 'is-invalid': regSubmitted && regf.password_confirmation.errors }"
                       placeholder="{{'confirme Password' | translate }}" autocomplete="false" required="true" autofocus="true">
                   </div>
                 </div>
@@ -206,7 +222,18 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="check">  
                 <label class="form-check-label" for="exampleCheck1">{{'Check me out' | translate }}</label>
               </div>
-              <button type="submit" class="btn btn-warning btn-block  mt-3">{{'Sign up' | translate }}</button>
+
+              <!-- <div *ngIf="regError.length!=0"  class="alert alert-danger">
+                <ul>
+                    <li *ngFor="let err of regError" >{{err}}</li>
+                </ul>
+              </div> -->
+
+              <app-message id="100" type="danger" [messages]="regError" ></app-message>
+              <button type="submit" class="btn btn-warning btn-block  mt-3">{{'Sign up' | translate }}
+                <app-spiner name="regSpin" ></app-spiner>
+
+              </button>
             </form>
           </div>
           <div class="col-lg-4">

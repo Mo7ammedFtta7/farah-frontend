@@ -7,12 +7,11 @@ import { TranslationService } from '../translation/translation.service';
   providedIn: 'root'
 })
 export class DataService {
-  private  serviceTypes = [];
+  private  serviceTypes ;
   private states: []=[];
   private cities: []=[];
 
   constructor(private api: ApiService,private trans : TranslationService) {
-
   }
 
   ngOnInit(): void {
@@ -20,7 +19,6 @@ export class DataService {
   }
 
   findIn(array,obj,key,val){
-
     if(array.length>0){
       var found = array.find(function(element) { 
         return element[key]===val; 
@@ -30,7 +28,6 @@ export class DataService {
     else{
       return []
     }
-
   }
 
   getServiceTypes() {
@@ -51,10 +48,7 @@ export class DataService {
     return this.findIn(ctites,'areas','id',cityID)
   };
 
-
  callStates(){
-  console.log('cities loaded');
-
     return new Promise((resolve, reject) => {
       this.api
           .get('states/country/1')
@@ -63,19 +57,16 @@ export class DataService {
               resolve(true);
           })
   })
-
   }
 
   load() {
     console.log('data Services loaded');
-
     this.callStates()
-
     return new Promise((resolve, reject) => {
         this.api
             .get('service_types')
             .subscribe(response => {
-                this.serviceTypes = response['data']  ;
+                this.serviceTypes = response;
                 resolve(true);
             })
     })
